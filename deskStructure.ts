@@ -86,5 +86,8 @@ export const deskStructure: StructureResolver = (S, context) =>
                 ),
             ]),
         ),
-      ...S.documentTypeListItems().filter((item) => item.getId() !== "page"),
+      ...S.documentTypeListItems().filter((item) => {
+        const id = item.getId();
+        return id !== "page" && id !== "siteSettings";
+      }),
     ]);
