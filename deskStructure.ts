@@ -1,3 +1,4 @@
+// deskStructure.ts
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import type { StructureResolver } from "sanity/structure";
 
@@ -21,6 +22,15 @@ export const deskStructure: StructureResolver = (S, context) =>
   S.list()
     .title("Innihald")
     .items([
+      S.listItem()
+        .title("Vefstillingar")
+        .schemaType("siteSettings")
+        .child(
+          S.document()
+            .schemaType("siteSettings")
+            .documentId("siteSettings")
+        ),
+      S.divider(),
       S.listItem()
         .title("Síðutré")
         .schemaType("page")
@@ -76,6 +86,5 @@ export const deskStructure: StructureResolver = (S, context) =>
                 ),
             ]),
         ),
-      S.divider(),
       ...S.documentTypeListItems().filter((item) => item.getId() !== "page"),
     ]);

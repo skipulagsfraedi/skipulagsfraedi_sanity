@@ -1,3 +1,4 @@
+// schemaTypes/pageType.ts
 import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 import { defineType, defineField } from "sanity";
 
@@ -59,6 +60,69 @@ export const pageType = defineType({
 
           return true;
         }),
+    }),
+    defineField({
+      name: "hero",
+      title: "Forsíðukassi",
+      type: "object",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+      fields: [
+        defineField({
+          name: "badge",
+          title: "Yfirtexti",
+          type: "string",
+        }),
+        defineField({
+          name: "title",
+          title: "Titill",
+          type: "string",
+        }),
+        defineField({
+          name: "subtitle",
+          title: "Undirtexti",
+          type: "text",
+          rows: 4,
+        }),
+        defineField({
+          name: "primaryCta",
+          title: "Aðalhnappur",
+          type: "object",
+          fields: [
+            defineField({
+              name: "label",
+              title: "Texti",
+              type: "string",
+            }),
+            defineField({
+              name: "href",
+              title: "Slóð",
+              type: "string",
+              description: "Styður innri slóðir (t.d. #project) eða fullar vefslóðir.",
+            }),
+          ],
+        }),
+        defineField({
+          name: "secondaryCta",
+          title: "Aukahnappur",
+          type: "object",
+          fields: [
+            defineField({
+              name: "label",
+              title: "Texti",
+              type: "string",
+            }),
+            defineField({
+              name: "href",
+              title: "Slóð",
+              type: "string",
+              description: "Styður innri slóðir (t.d. #contact) eða fullar vefslóðir.",
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
       name: "content",
