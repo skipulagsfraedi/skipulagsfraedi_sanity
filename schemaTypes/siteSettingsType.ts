@@ -38,6 +38,21 @@ export const siteSettingsType = defineType({
       group: "hero",
     }),
     defineField({
+      name: "heroImage",
+      title: "Mynd",
+      type: "image",
+      options: { hotspot: true },
+      group: "hero",
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt texti",
+          type: "string",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+    }),
+    defineField({
       name: "heroPrimaryCta",
       title: "Aðalhnappur",
       type: "object",
