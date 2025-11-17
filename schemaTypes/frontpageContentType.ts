@@ -294,6 +294,10 @@ export const frontpageContentType = defineType({
     }),
   ],
   preview: {
+    select: {
+      // Selecting a field ensures Sanity runs prepare and avoids "Untitled" labels
+      title: 'heroTitle',
+    },
     prepare: () => ({
       title: 'Forsíðuefni',
       subtitle: 'Allt efni forsíðu',
