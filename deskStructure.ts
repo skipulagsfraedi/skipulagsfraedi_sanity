@@ -30,6 +30,14 @@ export const deskStructure: StructureResolver = (S, context) =>
             .schemaType("siteSettings")
             .documentId("siteSettings")
         ),
+      S.listItem()
+        .title("Forsíðuefni")
+        .schemaType("frontpageContent")
+        .child(
+          S.document()
+            .schemaType("frontpageContent")
+            .documentId("frontpageContent"),
+        ),
       S.divider(),
       S.listItem()
         .title("Síðutré")
@@ -88,6 +96,6 @@ export const deskStructure: StructureResolver = (S, context) =>
         ),
       ...S.documentTypeListItems().filter((item) => {
         const id = item.getId();
-        return id !== "page" && id !== "siteSettings";
+        return id !== "page" && id !== "siteSettings" && id !== "frontpageContent";
       }),
     ]);

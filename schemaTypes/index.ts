@@ -1,6 +1,12 @@
 // schemaTypes/index.ts
-import { postType } from "./postType";
-import { pageType } from "./pageType";
-import { siteSettingsType } from "./siteSettingsType";
+import {pageType} from './pageType';
+import {postType} from './postType';
+import {siteSettingsType} from './siteSettingsType';
+import {frontpageContentType} from './frontpageContentType';
 
-export const schemaTypes = [postType, pageType, siteSettingsType];
+export const schemaTypes = [
+  postType,
+  pageType,
+  siteSettingsType,
+  frontpageContentType,
+];
