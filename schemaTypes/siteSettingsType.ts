@@ -6,7 +6,6 @@ export const siteSettingsType = defineType({
   title: "Vefstillingar",
   type: "document",
   groups: [
-    { name: "hero", title: "Forsíðukassi" },
     { name: "footer", title: "Fótur" },
   ],
   fields: [
@@ -19,80 +18,8 @@ export const siteSettingsType = defineType({
       hidden: true,
     }),
     defineField({
-      name: "heroBadge",
-      title: "Yfirtexti",
-      type: "string",
-      group: "hero",
-    }),
-    defineField({
-      name: "heroTitle",
-      title: "Titill",
-      type: "string",
-      group: "hero",
-    }),
-    defineField({
-      name: "heroSubtitle",
-      title: "Undirtexti",
-      type: "text",
-      rows: 4,
-      group: "hero",
-    }),
-    defineField({
-      name: "heroImage",
-      title: "Mynd",
-      type: "image",
-      options: { hotspot: true },
-      group: "hero",
-      fields: [
-        defineField({
-          name: "alt",
-          title: "Alt texti",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-    }),
-    defineField({
-      name: "heroPrimaryCta",
-      title: "Aðalhnappur",
-      type: "object",
-      group: "hero",
-      fields: [
-        defineField({
-          name: "label",
-          title: "Texti",
-          type: "string",
-        }),
-        defineField({
-          name: "href",
-          title: "Slóð",
-          type: "string",
-          description: "Styður innri slóðir (t.d. #project) eða fullar vefslóðir.",
-        }),
-      ],
-    }),
-    defineField({
-      name: "heroSecondaryCta",
-      title: "Aukahnappur",
-      type: "object",
-      group: "hero",
-      fields: [
-        defineField({
-          name: "label",
-          title: "Texti",
-          type: "string",
-        }),
-        defineField({
-          name: "href",
-          title: "Slóð",
-          type: "string",
-          description: "Styður innri slóðir (t.d. #contact) eða fullar vefslóðir.",
-        }),
-      ],
-    }),
-    defineField({
       name: "footerNotice",
-      title: "Fóttexti",
+      title: "Texti í fæti",
       type: "text",
       rows: 3,
       group: "footer",
@@ -108,7 +35,7 @@ export const siteSettingsType = defineType({
   preview: {
     prepare: () => ({
       title: "Vefstillingar",
-      subtitle: "Forsíðuhero og fótur",
+      subtitle: "Fótur",
     }),
   },
 });

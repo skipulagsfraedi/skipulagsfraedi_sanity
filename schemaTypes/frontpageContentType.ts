@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity';
 
 export const frontpageContentType = defineType({
   name: 'frontpageContent',
-  title: 'Forsíðuefni',
+  title: 'Forsíða',
   type: 'document',
   groups: [
     {name: 'hero', title: 'Hero'},
@@ -15,7 +15,7 @@ export const frontpageContentType = defineType({
       name: 'title',
       title: 'Heiti skráningar',
       type: 'string',
-      initialValue: 'Forsíðuefni',
+      initialValue: 'Forsíða',
       readOnly: true,
       hidden: true,
     }),

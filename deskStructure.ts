@@ -1,6 +1,7 @@
 // deskStructure.ts
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import type { StructureResolver } from "sanity/structure";
+import {CogIcon, HomeIcon, DocumentIcon} from '@sanity/icons';
 
 const makeSubPageList = (
   S: Parameters<StructureResolver>[0],
@@ -25,6 +26,7 @@ export const deskStructure: StructureResolver = (S, context) =>
       S.listItem()
         .title("Vefstillingar")
         .schemaType("siteSettings")
+        .icon(CogIcon)
         .child(
           S.document()
             .schemaType("siteSettings")
@@ -33,6 +35,7 @@ export const deskStructure: StructureResolver = (S, context) =>
       S.listItem()
         .title("Forsíðuefni")
         .schemaType("frontpageContent")
+        .icon(HomeIcon)
         .child(
           S.document()
             .schemaType("frontpageContent")
@@ -42,6 +45,7 @@ export const deskStructure: StructureResolver = (S, context) =>
       S.listItem()
         .title("Síðutré")
         .schemaType("page")
+        .icon(DocumentIcon)
         .child(
           S.list()
             .title("Síðutré")
