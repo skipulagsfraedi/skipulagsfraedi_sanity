@@ -19,7 +19,6 @@ const newsDefaults = {
   ctaLabel: 'Sjá allar fréttir',
   ctaHref: '/frettir',
   readMoreLabel: 'Lesa meira →',
-  emptyState: 'Engar fréttir hafa verið birtar enn, en kíktu fljótlega aftur.',
 };
 
 const teamDefaults = {
@@ -67,7 +66,7 @@ export const frontpageContentType = defineType({
   groups: [
     {name: 'hero', title: 'Hero'},
     {name: 'news', title: 'Fréttir'},
-    {name: 'team', title: 'Teymi'},
+    {name: 'team', title: 'Stjórn'},
     {name: 'pillars', title: 'Stoðir'},
     {name: 'contact', title: 'Hafðu samband'},
   ],
@@ -147,21 +146,21 @@ export const frontpageContentType = defineType({
     }),
     defineField({
       name: 'newsBadge',
-      title: 'Yfirtexti (fréttir)',
+      title: 'Yfirtexti',
       type: 'string',
       initialValue: newsDefaults.badge,
       group: 'news',
     }),
     defineField({
       name: 'newsTitle',
-      title: 'Titill (fréttir)',
+      title: 'Titill',
       type: 'string',
       initialValue: newsDefaults.title,
       group: 'news',
     }),
     defineField({
       name: 'newsDescription',
-      title: 'Lýsing (fréttir)',
+      title: 'Lýsing',
       type: 'text',
       rows: 3,
       initialValue: newsDefaults.description,
@@ -175,16 +174,8 @@ export const frontpageContentType = defineType({
       group: 'news',
     }),
     defineField({
-      name: 'newsEmptyState',
-      title: 'Ekkert efni texti',
-      type: 'text',
-      rows: 3,
-      initialValue: newsDefaults.emptyState,
-      group: 'news',
-    }),
-    defineField({
       name: 'newsCta',
-      title: 'CTA (fréttir)',
+      title: 'CTA',
       type: 'object',
       initialValue: {
         label: newsDefaults.ctaLabel,
@@ -198,14 +189,14 @@ export const frontpageContentType = defineType({
     }),
     defineField({
       name: 'teamTitle',
-      title: 'Titill (teymi)',
+      title: 'Titill',
       type: 'string',
       initialValue: teamDefaults.title,
       group: 'team',
     }),
     defineField({
       name: 'teamDescription',
-      title: 'Lýsing (teymi)',
+      title: 'Lýsing',
       type: 'text',
       rows: 3,
       initialValue: teamDefaults.body,
@@ -213,21 +204,21 @@ export const frontpageContentType = defineType({
     }),
     defineField({
       name: 'pillarsBadge',
-      title: 'Yfirtexti (stoðir)',
+      title: 'Yfirtexti ',
       type: 'string',
       initialValue: pillarDefaults.badge,
       group: 'pillars',
     }),
     defineField({
       name: 'pillarsTitle',
-      title: 'Titill (stoðir)',
+      title: 'Titill',
       type: 'string',
       initialValue: pillarDefaults.title,
       group: 'pillars',
     }),
     defineField({
       name: 'pillarsDescription',
-      title: 'Lýsing (stoðir)',
+      title: 'Lýsing',
       type: 'text',
       rows: 3,
       initialValue: pillarDefaults.description,
@@ -258,7 +249,7 @@ export const frontpageContentType = defineType({
     }),
     defineField({
       name: 'contactTitle',
-      title: 'Titill (hafðu samband)',
+      title: 'Titill',
       type: 'string',
       initialValue: contactDefaults.title,
       group: 'contact',
@@ -270,6 +261,8 @@ export const frontpageContentType = defineType({
       initialValue: contactDefaults.lead,
       group: 'contact',
     }),
+
+    // TODO: We only need one field for the email, the label should be the email address
     defineField({
       name: 'contactEmailLabel',
       title: 'Netfangstexti',
