@@ -8,7 +8,7 @@ export const frontpageContentType = defineType({
   groups: [
     {name: 'hero', title: 'Hero'},
     {name: 'news', title: 'Fréttir'},
-    {name: 'sections', title: 'Kaflar'},
+    {name: 'sections', title: 'Síðuhlutar'},
   ],
   fields: [
     defineField({
@@ -34,7 +34,7 @@ export const frontpageContentType = defineType({
     }),
     defineField({
       name: 'sections',
-      title: 'Kaflar',
+      title: 'Síðuhlutar',
       type: 'array',
       group: 'sections',
       of: [
@@ -46,7 +46,7 @@ export const frontpageContentType = defineType({
   ],
   preview: {
     prepare: () => ({
-      title: 'Forsíðuefni',
+      title: 'Forsíða',
       subtitle: 'Allt efni forsíðu',
     }),
   },
