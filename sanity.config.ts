@@ -3,6 +3,8 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {deskStructure} from './deskStructure'
+import {isISLocale} from '@sanity/locale-is-is'
+
 export default defineConfig({
   name: 'default',
   title: 'Skipulagsfræðingafélag Íslands',
@@ -10,7 +12,13 @@ export default defineConfig({
   projectId: 'cpe0lcma',
   dataset: 'production',
 
-  plugins: [structureTool({structure: deskStructure}), visionTool()],
+  plugins: [
+    structureTool({structure: deskStructure}), 
+    visionTool(),
+    isISLocale(
+      {title: 'Íslenska'}
+    ),
+  ],
 
   schema: {
     types: schemaTypes,

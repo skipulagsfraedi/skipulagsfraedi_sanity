@@ -80,6 +80,10 @@ export const pageType = defineType({
             }),
           ],
         },
+        {
+          type: "collapsibleList",
+          title: "Sambrjótanlegur listi",
+        },
       ],
       validation: (Rule) =>
         Rule.custom(async (value, context) => {

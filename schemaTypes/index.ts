@@ -9,6 +9,7 @@ import {
   teamSection,
   pillarsSection,
   contactSection,
+  collapsibleList,
 } from './sections';
 
 export const schemaTypes = [
@@ -20,5 +21,6 @@ export const schemaTypes = [
   teamSection,
   pillarsSection,
   contactSection,
+  collapsibleList,
   frontpageContentType,
 ];
