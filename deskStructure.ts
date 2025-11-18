@@ -42,61 +42,48 @@ export const deskStructure: StructureResolver = (S, context) =>
             .documentId("frontpageContent"),
         ),
       S.divider(),
+      orderableDocumentListDeskItem({
+        id: "orderable-top-level-pages",
+        title: "Raða yfirsíðum",
+        type: "page",
+        filter: "!defined(parent)",
+        S,
+        context,
+      }),
       S.listItem()
-        .title("Síðutré")
+        .title("Síður")
         .schemaType("page")
         .icon(DocumentIcon)
         .child(
-          S.list()
-            .title("Síðutré")
-            .items([
-              orderableDocumentListDeskItem({
-                id: "orderable-top-level-pages",
-                title: "Raða yfirsíðum",
-                type: "page",
-                filter: "!defined(parent)",
-                S,
-                context,
-              }),
-              S.listItem()
-                .title("Yfirsíður")
-                .child(
-                  S.documentList()
-                    .title("Yfirsíður")
-                    .schemaType("page")
-                    .filter("_type == 'page' && !defined(parent)")
-                    .defaultOrdering([
-                      { field: "orderRank", direction: "asc" },
-                    ])
-                    .child((documentId, { schemaType }) => {
-                      const safeDocumentId = documentId || "";
+          S.documentList()
+            .title("Síður")
+            .schemaType("page")
+            .filter("_type == 'page' && !defined(parent)")
+            .defaultOrdering([{ field: "orderRank", direction: "asc" }])
+            .child((documentId, { schemaType }) => {
+              const safeDocumentId = documentId || "";
 
-                      return S.list()
-                        .title("Síða")
-                        .items([
-                          S.listItem()
-                            .title("Breyta síðu")
-                            .child(
-                              S.document()
-                                .schemaType(schemaType || "page")
-                                .documentId(documentId || undefined),
-                            ),
-                          orderableDocumentListDeskItem({
-                            id: `orderable-subpages-${safeDocumentId}`,
-                            title: "Raða undirsíðum",
-                            type: "page",
-                            filter: "parent._ref == $parentId",
-                            params: { parentId: safeDocumentId },
-                            S,
-                            context,
-                          }),
-                          S.listItem()
-                            .title("Undirsíður")
-                            .child(makeSubPageList(S, safeDocumentId)),
-                        ]);
-                    }),
-                ),
-            ]),
+              return S.list()
+                .title("Síða")
+                .items([
+                  S.listItem()
+                    .title("Breyta síðu")
+                    .child(
+                      S.document()
+                        .schemaType(schemaType || "page")
+                        .documentId(documentId || undefined),
+                    ),
+                  orderableDocumentListDeskItem({
+                    id: `orderable-subpages-${safeDocumentId}`,
+                    title: "Undirsíður",
+                    type: "page",
+                    filter: "parent._ref == $parentId",
+                    params: { parentId: safeDocumentId },
+                    S,
+                    context,
+                  }),
+                ]);
+            }),
         ),
       ...S.documentTypeListItems().filter((item) => {
         const id = item.getId();

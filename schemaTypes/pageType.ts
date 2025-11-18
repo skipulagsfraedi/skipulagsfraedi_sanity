@@ -20,6 +20,7 @@ export const pageType = defineType({
       title: "Yfirsíða",
       type: "reference",
       to: [{ type: "page" }],
+      hidden: ({ document }) => !document?.parent,
       options: {
         disableNew: true,
         filter: ({ document }) => {
