@@ -61,10 +61,13 @@ export const collapsibleList = defineType({
     }),
   ],
   preview: {
-    select: {title: 'title', itemCount: 'items.length'},
-    prepare: ({title, itemCount}) => ({
-      title: title || 'Fellilisti',
-      subtitle: itemCount ? `${itemCount} atriði` : 'Engin atriði skilgreind',
-    }),
+    select: {title: 'title', items: 'items'},
+    prepare: ({title, items}) => {
+      const itemCount = Array.isArray(items) ? items.length : 0;
+      return {
+        title: title || 'Fellilisti',
+        subtitle: itemCount ? `${itemCount} atriði` : 'Engin atriði skilgreind',
+      };
+    },
   },
 });
