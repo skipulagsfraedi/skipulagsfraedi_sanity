@@ -82,7 +82,7 @@ export const pageType = defineType({
         },
         {
           type: "collapsibleList",
-          title: "Sambrjótanlegur listi",
+          title: "Fellilisti",
         },
       ],
       validation: (Rule) =>

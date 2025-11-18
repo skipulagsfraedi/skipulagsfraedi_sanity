@@ -3,7 +3,7 @@ import {defineField, defineType} from 'sanity';
 
 export const collapsibleList = defineType({
   name: 'collapsibleList',
-  title: 'Sambrjótanlegur listi',
+  title: 'Fellilisti',
   type: 'object',
   fields: [
     defineField({
@@ -63,7 +63,7 @@ export const collapsibleList = defineType({
   preview: {
     select: {title: 'title', itemCount: 'items.length'},
     prepare: ({title, itemCount}) => ({
-      title: title || 'Sambrjótanlegur listi',
+      title: title || 'Fellilisti',
       subtitle: itemCount ? `${itemCount} atriði` : 'Engin atriði skilgreind',
     }),
   },
