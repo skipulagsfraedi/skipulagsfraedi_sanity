@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { ImageIcon } from "@sanity/icons";
 
 export const postType = defineType({
   name: "post",
@@ -19,6 +20,8 @@ export const postType = defineType({
         { type: "block" },
         {
           type: "image",
+          title: "Mynd",
+          icon: ImageIcon,
           options: { hotspot: true },
           fields: [
             defineField({

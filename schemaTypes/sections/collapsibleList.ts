@@ -1,5 +1,6 @@
 // schemaTypes/sections/collapsibleList.ts
 import {defineField, defineType} from 'sanity';
+import {ImageIcon} from '@sanity/icons';
 
 export const collapsibleList = defineType({
   name: 'collapsibleList',
@@ -35,6 +36,8 @@ export const collapsibleList = defineType({
                 {type: 'block'},
                 {
                   type: 'image',
+                  title: 'Mynd',
+                  icon: ImageIcon,
                   options: {hotspot: true},
                   fields: [
                     defineField({

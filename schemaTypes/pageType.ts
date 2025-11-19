@@ -1,6 +1,7 @@
 // schemaTypes/pageType.ts
 import { orderRankField, orderRankOrdering } from "@sanity/orderable-document-list";
 import { defineType, defineField } from "sanity";
+import { ImageIcon } from "@sanity/icons";
 
 export const pageType = defineType({
   name: "page",
@@ -20,7 +21,11 @@ export const pageType = defineType({
       title: "Yfirsíða",
       type: "reference",
       to: [{ type: "page" }],
-      hidden: ({ document }) => !document?.parent,
+      hidden: ({ document }) => {
+        // Always show the parent field - users can set it when creating child pages
+        // The field will be filtered to only show top-level pages as options
+        return false;
+      },
       options: {
         disableNew: true,
         filter: ({ document }) => {
@@ -70,6 +75,8 @@ export const pageType = defineType({
         { type: "block" },
         {
           type: "image",
+          title: "Mynd",
+          icon: ImageIcon,
           options: { hotspot: true },
           fields: [
             defineField({
