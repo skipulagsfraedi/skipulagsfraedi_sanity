@@ -92,38 +92,7 @@ export const pageType = defineType({
           title: "Fellilisti",
         },
       ],
-      validation: (Rule) =>
-        Rule.custom(async (value, context) => {
-          const documentId = context?.document?._id?.replace(/^drafts\./, "");
-
-          if (!documentId) {
-            return true;
-          }
-
-          const hasContent = Array.isArray(value) && value.length > 0;
-
-          const getClient = context?.getClient;
-          const client = getClient?.({ apiVersion: "2023-05-15" });
-
-          if (!client) {
-            return true;
-          }
-
-          const childCount = await client.fetch(
-            'count(*[_type == "page" && (references($id) || references($draftId))])',
-            { id: documentId, draftId: `drafts.${documentId}` }
-          );
-
-          if (childCount > 0 && hasContent) {
-            return "Síður með undirsíðum mega ekki hafa innihald.";
-          }
-
-          if (childCount === 0 && !hasContent) {
-            return "Bættu við innihaldi eða búðu til undirsíðu.";
-          }
-
-          return true;
-        }),
+      validation: (Rule) => Rule.optional(),
     }),
     defineField({
       name: "slug",
