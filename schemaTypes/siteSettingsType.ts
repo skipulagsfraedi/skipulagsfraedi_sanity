@@ -6,6 +6,7 @@ export const siteSettingsType = defineType({
   title: "Vefstillingar",
   type: "document",
   groups: [
+    { name: "headers", title: "Haus" },
     { name: "footer", title: "Fótur" },
   ],
   fields: [
