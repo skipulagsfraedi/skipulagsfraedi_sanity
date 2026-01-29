@@ -6,7 +6,6 @@ export const siteSettingsType = defineType({
   title: "Vefstillingar",
   type: "document",
   groups: [
-    { name: "launch", title: "Birting" },
     { name: "headers", title: "Haus" },
     { name: "footer", title: "Fótur" },
   ],
@@ -18,15 +17,6 @@ export const siteSettingsType = defineType({
       initialValue: "Site settings",
       readOnly: true,
       hidden: true,
-    }),
-    defineField({
-      name: "siteLive",
-      title: "Birta vef",
-      type: "boolean",
-      group: "launch",
-      description:
-        "Þegar kveikt er birtist full útgáfa vefsins á aðalléninu.",
-      initialValue: false,
     }),
     defineField({
       name: "footerNotice",
